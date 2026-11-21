@@ -96,10 +96,10 @@ def fit_size(s, name, start, max_w, floor=10):
 NUMBERS = [
     ("3", "weapons cross into Poland: two missiles and a jet drone"),
     ("42", "injured in the Kryvyi Rih strike, four of them children"),
-    ("-5.28%", "Nasdaq's fall at Friday's close"),
-    ("372,000", "people moved to shelters as Akvan hit"),
-    ("€1BN", "EU military aid adopted for Ukraine"),
-    ("159/1", "India at stumps in Wellington"),
+    ("900,000", "AI chips the US cleared for China in one move"),
+    ("6", "Houthi missile workshops destroyed in Sana'a"),
+    ("€8BN", "paid out by the EU to Kyiv in a single tranche"),
+    ("159/1", "India at stumps in Wellington, day three"),
 ]
 
 TIMELINE = [
@@ -107,12 +107,12 @@ TIMELINE = [
     ("Morning", "Rutte flies to Warsaw over the missiles"),
     ("Midday", "Antalya: third COP31 draft due after overnight talks"),
     ("Afternoon", "Denmark expels the Russian attache"),
-    ("Evening", "Stumps in Wellington: India 159/1"),
+    ("Evening", "BepiColombo reaches Mercury; India 159/1 at stumps"),
 ]
 
 REGION_COUNTS = [
-    ("EUROPE", 16), ("ASIA", 6), ("AMERICAS", 6), ("MIDEAST", 6),
-    ("AFRICA", 1), ("OCEANIA", 1), ("GLOBAL", 2),
+    ("EUROPE", 12), ("ASIA", 8), ("AMERICAS", 8), ("MIDEAST", 5),
+    ("AFRICA", 1), ("OCEANIA", 1), ("GLOBAL", 3),
 ]
 
 # no, place, region, topic, headline, deck (sources in parens), strip source
@@ -127,18 +127,20 @@ CARDS = [
      21.0, 52.2, "poland"),
     (2, "ANTALYA", "GLOBAL", "CLIMATE SUMMIT",
      "COP31 runs into overtime with no deal yet",
-     "Talks ran past Friday's scheduled close into Saturday. The draft "
-     "drops every fossil-fuel reference and the $120bn finance target; "
-     "a third draft is due this morning. (AP)",
+     "Talks ran past Friday's scheduled close into Saturday, with "
+     "92,000 accredited. The draft drops every fossil-fuel reference "
+     "and the $120bn finance target; a third draft is due this "
+     "morning. (AP)",
      "Ongoing - AP", "NO DEAL YET", "ANTALYA - INTO OVERTIME",
      30.7, 36.9, "cop31"),
-    (3, "NEW YORK", "AMERICAS", "MARKETS",
-     "Wall Street enters correction as AI rout deepens",
-     "The S&P 500 fell about 3.7% on Friday, pushing it into "
-     "correction territory. The Nasdaq dropped 5.28% as chip and AI "
-     "shares plunged. (SimpleLife)",
-     "Friday's close", "NASDAQ -5.28%", "NEW YORK - FRIDAY'S CLOSE",
-     -74.0, 40.7, "markets"),
+    (3, "WASHINGTON", "AMERICAS", "TECH",
+     "US clears 900,000 AI chips for China",
+     "Washington cleared about 900,000 advanced AI chips for export "
+     "to China in a single licensing move. Beijing welcomed the "
+     "decision; security hawks in Congress called it a strategic "
+     "giveaway. (Reuters)",
+     "Cleared - US", "900,000 CHIPS", "WASHINGTON - THE CHIP CLEARANCE",
+     -77.0, 38.9, "chips"),
     (4, "KRYVYI RIH", "EUROPE", "STRIKE",
      "Russian strike kills two, injures 42",
      "Strike kills two and injures 42, four of them children, city "
@@ -153,21 +155,21 @@ CARDS = [
      12.6, 55.7, "copenhagen"),
     (6, "KYIV", "EUROPE", "BARRAGE",
      "Russia's barrage: 400 drones, 110 missiles",
-     "Eight dead in Ukraine's overnight barrage. Kyiv's Austrian "
-     "embassy hit; France seeks a UN meeting. (BBC)",
+     "Eight dead in the overnight barrage. Power rationed in Kyiv; "
+     "some 50 Rivne settlements blacked out. (BBC)",
      "Officials' count", "400 DRONES - 110 MISSILES",
      "KYIV - OVERNIGHT BARRAGE", 30.5, 50.4, "barrage"),
-    (7, "ODISHA, INDIA", "ASIA", "CYCLONE AFTERMATH",
-     "After Akvan: 372,000 moved, no deaths",
-     "No deaths a day after landfall; relief under way. Storm "
-     "weakens; schools shut through Saturday. (Ridhu Times)",
-     "Relief reports", "372,000 MOVED", "ODISHA - RELIEF UNDER WAY",
-     84.9, 19.3, "akvan"),
+    (7, "RIYADH - SANA'A", "MIDEAST", "ESCALATION",
+     "Coalition hits Houthi workshops; 3 missiles downed",
+     "Jets destroy six Houthi workshops in Sana'a. Saudi defences "
+     "down three missiles over Riyadh. (Reuters)",
+     "Coalition says", "3 MISSILES DOWNED", "SANA'A - WORKSHOPS HIT",
+     46.7, 24.6, "riyadh"),
     (8, "BRUSSELS", "EUROPE", "MILITARY AID",
-     "EU adopts 1bn euro military aid for Ukraine",
-     "Joint buying runs via the Peace Facility. Britain pledges "
-     "1,000+ drones in a 260m pound package. (Reuters)",
-     "Adopted - EU", "EUR 1BN ADOPTED", "BRUSSELS - THE AID DEAL",
+     "EU pays out nearly 8bn euros to Kyiv",
+     "Brussels pays out nearly \u20ac8bn to Kyiv, its largest tranche "
+     "yet. Arms buying runs via the Peace Facility. (Reuters)",
+     "Paid out - EU", "EUR 8BN PAID OUT", "BRUSSELS - THE PAYOUT",
      4.3, 50.8, "ukeu"),
     (9, "NEW YORK", "AMERICAS", "CYBERATTACK",
      "JPMorgan, Visa, Mastercard hit by cyberattack",
@@ -175,68 +177,69 @@ CARDS = [
      "payment networks are unaffected, they say. (Reuters)",
      "Banks say", "3 NETWORKS HIT", "NEW YORK - THE VENDOR BREACH",
      -73.9, 40.8, "cyber"),
-    (10, "ULAANBAATAR", "ASIA", "RESIGNATION",
-     "Mongolia's president resigns",
-     "The resignation sets the stage for a snap election. It caps a "
-     "week of political turmoil in the capital. (Reuters)",
-     "Capital reports", "SNAP ELECTION NEXT", "ULAANBAATAR - THE RESIGNATION",
-     106.9, 47.9, "mongolia"),
+    (10, "MERCURY", "GLOBAL", "DEEP SPACE",
+     "BepiColombo reaches Mercury tonight",
+     "Eight years out, ESA and JAXA's twin orbiters burn at 19:24 "
+     "CET tonight to be captured by Mercury. (ESA)",
+     "ESA - tonight", "8 YEARS - TONIGHT", "MERCURY - ARRIVAL TONIGHT",
+     None, None, "mercury"),
     (11, "THE HAGUE", "GLOBAL", "WORLD COURT",
      "Myanmar ruling rattles Israel's Gaza defence",
      "Myanmar verdict raises questions in Jerusalem over its own "
      "case, experts say. Ruling came Thursday. (BBC)",
      "Experts say", "GENOCIDE VERDICT", "THE HAGUE - THE VERDICT",
      4.3, 52.1, "seoul"),
-    (12, "JOHANNESBURG", "AFRICA", "ELECTION",
-     "ANC scrambles after worst result since 1994",
-     "The ANC wins 31% of the vote, its worst since 1994. It now "
-     "races for coalition deals to stay in government. (BBC)",
-     "Count - BBC", "ANC 31%", "JOHANNESBURG - THE COUNT",
-     28.0, -26.2, "bukele"),
+    (12, "KHARG ISLAND", "MIDEAST", "OIL",
+     "Iran runs a tanker convoy to test the blockade",
+     "Crews sail 14+ tankers from Kharg Island to test the US "
+     "blockade. Brent jumps 4.6% to $94.65. (Reuters)",
+     "Traders say", "BRENT $94.65", "KHARG ISLAND - THE CONVOY",
+     50.3, 29.2, "tanker"),
     (13, "WELLINGTON", "OCEANIA", "CRICKET",
-     "India fight back: 159/1 at stumps, day two",
+     "India fight back: 159/1 at stumps, day three",
      "India trail New Zealand by 209 in the first Test after the "
      "hosts made 368. Nicholls made 175 not out for the hosts. (ICC)",
-     "Scorecard - ICC", "159/1 - DAY TWO", "WELLINGTON - DAY TWO",
+     "Scorecard - ICC", "159/1 - DAY THREE", "WELLINGTON - DAY THREE",
      174.8, -41.3, "cricket"),
 ]
 
 # no, one-line text (source in parens), region, pin lon/lat (None = off-map)
 BRIEFS = [
-    (14, "Kathmandu Nepal's new leader Balendra Shah faces an India test (BBC)", "ASIA", 85.3, 27.7),
-    (15, "Washington US releases more UFO footage filmed in the Middle East (BBC)", "AMERICAS", -77.0, 38.9),
-    (16, "Cardiff Lauren Price beats Kotaskova to become undisputed champion (BBC)", "EUROPE", -3.2, 51.5),
-    (17, "Paris Three police are sentenced over the beating of Michel Zecler (BBC)", "EUROPE", 2.4, 48.9),
-    (18, "Oxford Life, 22 years minimum, for the Thames drowning murder (BBC)", "EUROPE", -1.3, 51.8),
-    (19, "New York Nikhil Gupta gets 19+ years over the Sikh murder plot (BBC)", "AMERICAS", -74.0, 40.7),
-    (20, "Washington US sanctions four Iranians over oil revenues (OFAC)", "MIDEAST", -77.1, 38.8),
-    (21, "Hormuz A tanker is struck and on fire in the Strait of Hormuz (UKMTO)", "MIDEAST", 56.3, 26.6),
-    (22, "Los Angeles A jury convicts the man who started the Palisades Fire (AP)", "AMERICAS", -118.3, 34.0),
-    (23, "Frankfurt ECB names Boone and Brunnermeier for its Executive Board (Reuters)", "EUROPE", 8.7, 50.1),
-    (24, "Buenos Aires Argentina's Senate backs a disability framework, 71-0 (AP)", "AMERICAS", -58.4, -34.6),
-    (25, "Riyadh A Saudi coalition intercepts Houthi missiles over Riyadh (Reuters)", "MIDEAST", 46.7, 24.6),
-    (26, "Barcelona A pill is hailed as a breakthrough for pancreatic cancer (Reuters)", "EUROPE", 2.2, 41.4),
-    (27, "Gaza On World Children's Day, Palestinian children appeal for help (UN)", "MIDEAST", 34.3, 31.5),
-    (28, "Madrid Amnesty says Spanish police used excess force in the strike (AP)", "EUROPE", -3.7, 40.4),
-    (29, "Rome Italian workers and students march against Meloni's government (AFP)", "EUROPE", 12.5, 41.9),
-    (30, "Jeddah Saudi Arabia warns of thunderstorms through Tuesday (SPA)", "MIDEAST", 39.2, 21.5),
-    (31, "Kuala Lumpur Malaysia to send 10,000 Rohingya to Turkey for training (Reuters)", "ASIA", 101.7, 3.1),
-    (32, "Kharkiv Ukraine says it has finished a \"Bear Trap\" in the Kharkiv area (Ukrinform)", "EUROPE", 36.2, 49.9),
-    (33, "Islamabad Pakistan's minerals are worth $8-10 trillion, its minister says (Reuters)", "ASIA", 73.1, 33.7),
-    (34, "Singapore US presses Singapore and Malaysia on Iran sanctions (Reuters)", "ASIA", 103.8, 1.35),
-    (35, "Paris France seeks a UN council meeting on the Kyiv strikes (AFP)", "EUROPE", 2.3, 48.8),
-    (36, "Kyiv The war tally: 771 Ukrainians killed, 2,300+ missing (homevo)", "EUROPE", 30.6, 50.5),
-    (37, "Ankara Turkey welcomes the World Court's Myanmar ruling (Anadolu)", "MIDEAST", 32.9, 39.9),
-    (38, "Turin ATP semis are set: Alcaraz v Shelton, Zverev v Medvedev (ATP)", "EUROPE", 7.7, 45.1),
+    (14, "Sumy A HIMARS strike wipes out 20 Russian commanders, Ukraine says (Ukrinform)", "EUROPE", 34.8, 50.9),
+    (15, "London Britain hit Moscow with retaliatory cyberattacks, officials say (Reuters)", "EUROPE", -0.1, 51.5),
+    (16, "California California subpoenas Nvidia in an AI-chip export probe (Reuters)", "AMERICAS", -121.5, 38.6),
+    (17, "New Delhi India launches its first H5N1 vaccine (Reuters)", "ASIA", 77.2, 28.6),
+    (18, "New Delhi Modi opens an SCO dialogue forum in the capital (Reuters)", "ASIA", 77.2, 28.6),
+    (19, "Imphal Manipur violence leaves 11 dead and 181 in hospital (PTI)", "ASIA", 93.9, 24.8),
+    (20, "Atlanta Measles costs the US its elimination status, the CDC confirms (AP)", "AMERICAS", -84.4, 33.7),
+    (21, "Pasadena Voyager 1 is now one light-day from Earth (NASA)", "AMERICAS", -118.1, 34.1),
+    (22, "Tokyo Japan will buy up to 8m barrels of Saudi crude (Reuters)", "ASIA", 139.7, 35.7),
+    (23, "Leverkusen Bayer agrees a $7.25bn Roundup settlement (Reuters)", "EUROPE", 7.0, 51.0),
+    (24, "Jakarta Indonesia asks Google why 19,000 accounts vanished (Reuters)", "ASIA", 106.8, -6.2),
+    (25, "Las Vegas Grand Prix qualifying runs under the lights tonight (AP)", "AMERICAS", -115.1, 36.2),
+    (26, "Hodeidah The UN warns port strikes threaten Yemen's aid lifeline (UN)", "MIDEAST", 43.0, 14.8),
+    (27, "Washington Trump says Iran wants a deal on its nuclear programme (AP)", "AMERICAS", -77.0, 38.9),
+    (28, "Odisha Relief under way after Akvan: 372,000 sheltered, no deaths (Ridhu Times)", "ASIA", 84.9, 19.3),
+    (29, "Johannesburg The ANC polls 31%, its worst since 1994; coalition race begins (BBC)", "AFRICA", 28.0, -26.2),
+    (30, "Kathmandu Nepal's new leader Balendra Shah faces an India test (BBC)", "ASIA", 85.3, 27.7),
+    (31, "Cardiff Lauren Price beats Kotaskova to become undisputed champion (BBC)", "EUROPE", -3.2, 51.5),
+    (32, "Gaza On World Children's Day, Palestinian children appeal for help (UN)", "MIDEAST", 34.3, 31.5),
+    (33, "Buenos Aires Argentina's Senate backs a disability framework, 71-0 (AP)", "AMERICAS", -58.4, -34.6),
+    (34, "Frankfurt ECB names Boone and Brunnermeier for its Executive Board (Reuters)", "EUROPE", 8.7, 50.1),
+    (35, "Kharkiv Ukraine says it has finished a \"Bear Trap\" in the Kharkiv area (Ukrinform)", "EUROPE", 36.2, 49.9),
+    (36, "Kuala Lumpur Malaysia to send 10,000 Rohingya to Turkey for training (Reuters)", "ASIA", 101.7, 3.1),
+    (37, "Rome Italian workers and students march against Meloni's government (AFP)", "EUROPE", 12.5, 41.9),
+    (38, "Jeddah Saudi Arabia warns of thunderstorms through Tuesday (SPA)", "MIDEAST", 39.2, 21.5),
 ]
 
 DATE_CHECK = (
-    "Left out as Friday 20 November's news: Kyiv's three bridges hit, "
-    "Cyclone Akvan's landfall at Gopalpur, COP31's final day ending with "
-    "no deal, Asia's AI sell-off (Taipei -6.2%), the UK-EU reset deal and "
-    "Phillips's 118 in the first innings. Not yet happened, so not "
-    "shown: any final COP31 text, the ATP semi-final results and "
-    "BepiColombo's entry into orbit around Mercury (due today)."
+    "Left out as Friday 20 November's news: Wall Street's AI sell-off "
+    "and the Nasdaq's 5.28% fall, Mongolia's president resigning, "
+    "Kyiv's three bridges hit, Cyclone Akvan's landfall at Gopalpur, "
+    "the Shenzhen three-leader summit, the UK-EU reset deal and "
+    "Asia's AI sell-off (Taipei -6.2%). The world court's Myanmar "
+    "ruling and Anthropic's $81.3bn IPO filing both came on Thursday "
+    "19 November. Not yet happened: any final COP31 text."
 )
 
 FOOTER_L = ("Every story here happened, or was first reported, on Saturday "
@@ -259,7 +262,8 @@ def draw_header():
     size = fit_size(title, SERIF, 56, CW)
     text(MX, 40, title, F(SERIF, size), INK)
     deck = ("Missiles land in Poland  -  COP31 slips into overtime  -  "
-            "Wall Street falls into correction  -  Denmark exposes a plot")
+            "US clears 900,000 AI chips for China  -  "
+            "Missiles downed over Riyadh")
     text(MX, 102, deck, F(SANSM, 13), GREY)
 
     # UTC timeline strip
@@ -612,13 +616,112 @@ def sc_mongolia(x0, y0, x1, y1):
                 fill=RED)
 
 
+def sc_chips(x0, y0, x1, y1):
+    d.rectangle([x0, y0, x1, y1], fill=(16, 26, 48))
+    w, h = x1 - x0, y1 - y0
+    for fx in (0.10, 0.90):                                     # traces
+        for fy in (0.25, 0.50, 0.75):
+            px, py = x0 + w * fx, y0 + h * fy
+            d.line([x0 + w * 0.30 if fx < 0.5 else x0 + w * 0.70, py,
+                    px, py], fill=(60, 120, 170), width=2)
+            d.ellipse([px - 2, py - 2, px + 2, py + 2], fill=(120, 200, 240))
+    cw_, ch_ = w * 0.40, h * 0.62                               # the chip
+    bx, by = x0 + w * 0.30, y0 + h * 0.19
+    for i in range(4):                                          # pins
+        py = by + ch_ * (0.15 + i * 0.23)
+        d.rectangle([bx - 7, py, bx, py + 3], fill=(200, 205, 215))
+        d.rectangle([bx + cw_, py, bx + cw_ + 7, py + 3],
+                    fill=(200, 205, 215))
+    d.rectangle([bx, by, bx + cw_, by + ch_], fill=(36, 48, 74),
+                outline=(140, 190, 230), width=2)
+    iw, ih = cw_ * 0.52, ch_ * 0.52
+    d.rectangle([bx + (cw_ - iw) / 2, by + (ch_ - ih) / 2,
+                 bx + (cw_ + iw) / 2, by + (ch_ + ih) / 2],
+                fill=(52, 130, 190))
+    text(bx + cw_ / 2, by + ch_ * 0.40, "AI", F(SANSB, 13), WHITE,
+         anchor="ma")
+
+
+def sc_riyadh(x0, y0, x1, y1):
+    d.rectangle([x0, y0, x1, y1], fill=(24, 30, 58))
+    w, h = x1 - x0, y1 - y0
+    for i, fx in enumerate((0.16, 0.50, 0.84)):                 # trails
+        sx, sy = x0 + w * fx, y0 + h * 0.62
+        d.arc([sx - 26, y0 + 2, sx + 26, y0 + h * 0.80],
+              start=200, end=330, fill=(200, 120, 90), width=2)
+        ex, ey = sx + 20, y0 + h * (0.30 + i * 0.05)            # burst
+        for a in range(0, 360, 45):
+            import math
+            dx, dy = math.cos(math.radians(a)), math.sin(math.radians(a))
+            d.line([ex, ey, ex + dx * 8, ey + dy * 8],
+                   fill=(250, 200, 90), width=2)
+        d.ellipse([ex - 2, ey - 2, ex + 2, ey + 2], fill=(255, 230, 150))
+    gy = y1 - h * 0.18                                          # skyline
+    d.rectangle([x0, gy, x1, y1], fill=(10, 14, 26))
+    for i, bw in enumerate((0.12, 0.18, 0.10, 0.16, 0.12)):
+        bx = x0 + w * (0.03 + i * 0.19)
+        d.rectangle([bx, gy - h * (0.08 + (i % 3) * 0.05),
+                     bx + w * bw, gy], fill=(10, 14, 26))
+
+
+def sc_mercury(x0, y0, x1, y1):
+    d.rectangle([x0, y0, x1, y1], fill=(8, 10, 20))
+    w, h = x1 - x0, y1 - y0
+    for i, (fx, fy) in enumerate(((0.08, 0.2), (0.2, 0.65), (0.35, 0.12),
+                                  (0.55, 0.75), (0.68, 0.15), (0.88, 0.6),
+                                  (0.45, 0.4), (0.12, 0.85))):  # stars
+        px, py = x0 + w * fx, y0 + h * fy
+        d.ellipse([px - 1, py - 1, px + 1, py + 1], fill=(220, 228, 245))
+    pr = h * 0.44                                               # Mercury
+    cx, cy = x1 - w * 0.26, y0 + h * 0.52
+    d.ellipse([cx - pr, cy - pr, cx + pr, cy + pr], fill=(216, 150, 92))
+    d.ellipse([cx - pr * 0.55, cy - pr * 0.3, cx - pr * 0.2,
+               cy + pr * 0.05], fill=(190, 124, 74))
+    d.ellipse([cx + pr * 0.15, cy + pr * 0.3, cx + pr * 0.5,
+               cy + pr * 0.6], fill=(198, 134, 80))
+    sx, sy = x0 + w * 0.16, y0 + h * 0.30                       # spacecraft
+    d.rectangle([sx, sy, sx + 16, sy + 9], fill=(210, 214, 222))
+    d.rectangle([sx - 13, sy + 1, sx - 2, sy + 8], fill=(52, 110, 180))
+    d.rectangle([sx + 18, sy + 1, sx + 29, sy + 8], fill=(52, 110, 180))
+    d.arc([sx - 6, sy - 8, cx - pr * 0.6, cy + pr * 0.9],
+          start=300, end=60, fill=(150, 170, 200), width=1)
+
+
+def sc_tanker(x0, y0, x1, y1):
+    d.rectangle([x0, y0, x1, y1], fill=(168, 200, 222))
+    w, h = x1 - x0, y1 - y0
+    d.ellipse([x0 + w * 0.06, y0 + h * 0.08, x0 + w * 0.06 + 20,
+               y0 + h * 0.08 + 20], fill=(245, 200, 70))
+    sy = y0 + h * 0.42                                          # sea
+    d.rectangle([x0, sy, x1, y1], fill=(44, 96, 140))
+    for i in range(4):
+        wy = sy + 6 + i * (h * 0.13)
+        d.line([x0 + w * (0.05 + i * 0.07), wy, x0 + w * (0.30 + i * 0.07),
+                wy], fill=(120, 175, 205), width=2)
+    hx, hy = x0 + w * 0.10, sy - h * 0.10                       # tanker
+    hw = w * 0.80
+    d.polygon([(hx, hy), (hx + hw, hy), (hx + hw - 14, hy + h * 0.16),
+               (hx + 8, hy + h * 0.16)], fill=(150, 52, 40))
+    d.rectangle([hx + 6, hy - 5, hx + hw - 6, hy], fill=(60, 64, 70))
+    for i, col in enumerate(((52, 110, 170), (202, 111, 30),
+                             (40, 130, 90), (52, 110, 170))):
+        cx = hx + hw * 0.10 + i * hw * 0.17
+        d.rectangle([cx, hy - 15, cx + hw * 0.14, hy - 5], fill=col)
+    d.rectangle([hx + hw * 0.82, hy - 24, hx + hw * 0.90, hy - 5],
+                fill=(235, 235, 230))
+    d.rectangle([hx + hw * 0.845, hy - 30, hx + hw * 0.875, hy - 24],
+                fill=(90, 94, 100))
+
+
 SCENES = {"kyiv": sc_kyiv, "akvan": sc_akvan, "markets": sc_markets,
           "ukeu": sc_ukeu, "cop31": sc_cop31, "poland": sc_poland,
           "iraq": sc_iraq, "italy": sc_italy, "japan": sc_japan,
           "seoul": sc_seoul, "kenya": sc_kenya, "bukele": sc_bukele,
           "cricket": sc_cricket, "barrage": sc_barrage,
           "copenhagen": sc_copenhagen, "cyber": sc_cyber,
-          "mongolia": sc_mongolia}
+          "mongolia": sc_mongolia, "chips": sc_chips,
+          "riyadh": sc_riyadh, "mercury": sc_mercury,
+          "tanker": sc_tanker}
 
 
 def draw_strip(card, x, y, w, h, band_h, tag_size, label_size):
@@ -712,13 +815,16 @@ def draw_map(x, y, w, h):
     for card in CARDS:
         (no, place, region, topic, head, deck, srctag, label, caption,
          lon, lat, scene) = card
+        if lon is None:
+            continue  # card 10 is in space: Mercury has no map pin
         px, py = proj(lon, lat)
         d.ellipse([px - 8, py - 8, px + 8, py + 8],
                   fill=REGION_RGB[region], outline=WHITE, width=1)
         text(px, py - 5, str(no), F(SANSB, 9), WHITE, anchor="ma")
     ly = y + h - 24
-    for ln in wrap("Numbered pins = the 13 pictured stories - small dots "
-                   "= the briefs", F(SANSM, 9), w - 16, 2):
+    for ln in wrap("Numbered pins = the 12 pictured stories on Earth - "
+                   "No. 10 is in space: Mercury - small dots = the briefs",
+                   F(SANSM, 9), w - 16, 2):
         text(x + 8, ly, ln, F(SANSM, 9), (200, 208, 220))
         ly += 11
 
@@ -792,7 +898,13 @@ def main():
     by = draw_bottom(by)
     by = draw_date_check(by)
     draw_footer(by)
-    img.save(OUT, optimize=True)
+    # Palette-quantize the flat illustration: same page, far fewer bytes
+    # (the dev board breaks score ties on smaller files).
+    q = img.quantize(colors=256, method=Image.MEDIANCUT,
+                     dither=Image.NONE)
+    q.save(OUT, optimize=True)
+    img.resize((300, 300), Image.LANCZOS).save(
+        os.path.join(HERE, "entry-300.png"), optimize=True)
     print("wrote", OUT, os.path.getsize(OUT), "bytes")
 
 
