@@ -1,18 +1,20 @@
 #!/usr/bin/env python3
-"""Hand-in program: copy entry.png into the make.fun output directory."""
+"""Deliver the committed entry.png into the runner's output folder."""
+
 import os
 import shutil
+from pathlib import Path
 
-HERE = os.path.dirname(os.path.abspath(__file__))
 
-
-def main():
-    out_dir = os.environ.get("MAKEFUN_OUTPUT_DIR", "/output")
-    os.makedirs(out_dir, exist_ok=True)
-    shutil.copyfile(os.path.join(HERE, "entry.png"),
-                    os.path.join(out_dir, "entry.png"))
-    print("entry.png ->", os.path.join(out_dir, "entry.png"))
+def deliver() -> Path:
+    source = Path(__file__).resolve().parent / "entry.png"
+    target_dir = Path(os.environ.get("MAKEFUN_OUTPUT_DIR") or "/output")
+    target_dir.mkdir(parents=True, exist_ok=True)
+    destination = target_dir / source.name
+    shutil.copyfile(source, destination)
+    return destination
 
 
 if __name__ == "__main__":
-    main()
+    placed = deliver()
+    print(f"delivered: {placed} ({placed.stat().st_size} bytes)")
